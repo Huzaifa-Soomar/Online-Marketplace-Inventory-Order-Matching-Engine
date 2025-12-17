@@ -1,5 +1,7 @@
 #include "OrderBook.h"
 
+OrderBook::OrderBook() : buyOrders(false), sellOrders(true) {}
+
 void OrderBook::addOrder(const Order& o) {
     if (o.type == BUY)
         buyOrders.push(o);
