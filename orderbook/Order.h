@@ -10,7 +10,7 @@ class Order {
 public:
     int orderId;
     int productId;
-    OrderType type;
+    OrderType type; // BUY or SELL
     int quantity;
     double price;
     long long timestamp;
@@ -21,7 +21,7 @@ public:
     // Comparison for heap
     bool operator<(const Order& other) const {
         if (price == other.price)
-            return timestamp > other.timestamp; // earlier first
+            return timestamp > other.timestamp; // This matches price–time priority rule used in real markets
         return price < other.price;
     }
 };
