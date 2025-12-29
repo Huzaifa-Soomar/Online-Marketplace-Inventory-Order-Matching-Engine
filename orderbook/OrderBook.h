@@ -16,6 +16,9 @@ public:
     Order getBestSell() const;
     Order removeBestBuy();
     Order removeBestSell();
+
+    bool hasBuyOrders() const;
+    bool hasSellOrders() const;
 };
 
 #endif

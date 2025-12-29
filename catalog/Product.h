@@ -6,13 +6,14 @@ using std::string;
 
 class Product {
 public:
-    int productId;
+    int id;
     string name;
     string category;
     double price;
     int stock;
 
-    Product(int id = 0, string n = "", string cat = "", double p = 0.0, int s = 0);
+    Product();
+    Product(int id, const string& name, const string& category, double price, int stock);
 };
 
 #endif
