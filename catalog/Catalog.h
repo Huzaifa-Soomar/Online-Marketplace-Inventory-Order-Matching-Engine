@@ -2,6 +2,7 @@
 #define CATALOG_2025_H
 
 #include "../utils/HashMap.h"
+#include <vector>
 #include "Product.h"
 #include "CategoryTree.h"
 
@@ -9,6 +10,7 @@ class Catalog {
 private:
     HashMap<int, Product> products;  // productId → Product
     CategoryTree categories;
+    std::vector<Product> productList; // For iteration / reporting
 
 public:
     Catalog();
@@ -16,6 +18,8 @@ public:
     bool removeProduct(int productId);
     Product* getProduct(int productId);
     CategoryTree& getCategoryTree();
+
+    const std::vector<Product>& getAllProducts() const;
 };
 
 #endif
