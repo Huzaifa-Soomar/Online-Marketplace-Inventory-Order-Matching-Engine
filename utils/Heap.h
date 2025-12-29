@@ -61,6 +61,8 @@ public:
     }
 
     bool empty() const { return arr.empty(); }
+
+    int size() const { return (int)arr.size(); }
 };
 
 #endif
