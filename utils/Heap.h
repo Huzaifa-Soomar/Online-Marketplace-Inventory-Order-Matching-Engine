@@ -4,8 +4,7 @@
 #include <vector>
 using std::vector;
 
-// This makes heap reusable:Heap<Order>  Heap<int>  Heap<anything>
-template <typename T>
+template <typename T>  // Can reuse Heap for different data types.
 class Heap {
 private:
     vector<T> arr;

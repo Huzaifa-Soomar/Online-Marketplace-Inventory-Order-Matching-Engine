@@ -8,9 +8,10 @@ class MatchingEngine {
 private:
     Catalog* catalog;
     OrderBook* orderbook;
+    HashMap<int, Order>* orderIndex;
 
 public:
-    MatchingEngine(Catalog* c, OrderBook* ob);
+    MatchingEngine(Catalog* c, OrderBook* ob, HashMap<int, Order>* idx);
 
     void processOrders();
     void matchSingleProduct(int productId);
