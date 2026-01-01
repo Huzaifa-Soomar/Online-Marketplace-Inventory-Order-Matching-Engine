@@ -1,3 +1,6 @@
 101 iPhone_15 Electronics/Mobile 250000 10
 102 Dell_XPS_13 Electronics/Laptop 320000 5
 201 Leather_Jacket Clothing/Jackets 15000 20
+301 USB_C_Cable Accessories/Cables 3000 50
+302 Laptop_Sleeve Electronics/Accessories 5000 30
+303 Wireless_Mouse Electronics/Accessories 4500 40

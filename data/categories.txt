@@ -1,7 +1,8 @@
 ROOT Electronics
 Electronics Mobile
 Electronics Laptop
-Electronics Tablet
+Electronics Accessories
+Accessories Cables
 ROOT Clothing
 Clothing Jackets
 Clothing Trousers
