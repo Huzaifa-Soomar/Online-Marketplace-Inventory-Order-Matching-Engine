@@ -1,123 +1,140 @@
-# Online Marketplace System - DSA Final Project
+# Online Marketplace System – DSA Final Project
 
-A comprehensive online marketplace system implemented in C++ that demonstrates various data structures and algorithms including HashMaps, Heaps, Trees, and Graphs.
+A comprehensive online marketplace system implemented in C++ that demonstrates core data structures and algorithms including HashMaps, Heaps (Priority Queues), Trees, and Graphs.
+
+---
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Data Structures Used](#data-structures-used)
-- [Project Structure](#project-structure)
-- [Compilation & Execution](#compilation--execution)
-- [Usage](#usage)
-- [Technical Details](#technical-details)
-- [Components](#components)
+- Overview
+- Features
+- Data Structures Used
+- Project Structure
+- Compilation & Execution
+- Usage
+- Technical Details
+- Components
+- Educational Scope & Design Decisions
+
+---
 
 ## 🎯 Overview
 
-This project implements a fully functional online marketplace system with the following core functionalities:
+This project implements an online marketplace system focused on demonstrating **Data Structures and Algorithms** concepts. The system supports:
 
-- **Product Catalog Management**: Hierarchical category system with product inventory
-- **Order Matching Engine**: Price-time priority order matching using heaps
-- **Recommendation System**: Graph-based co-purchase recommendations
-- **Interactive CLI**: User-friendly command-line interface for marketplace operations
+- Product catalog management using hashing and trees
+- Order matching using priority queues (heaps)
+- Graph-based product recommendations
+- Interactive command-line interface for demonstration and testing
+
+All operations are performed **in-memory** and are intended for **educational purposes**.
+
+---
 
 ## ✨ Features
 
 ### 1. Catalog System
-- Hierarchical category tree structure
-- Product management with HashMap for O(1) lookups
-- Category search and navigation
-- Inventory tracking
+- Hierarchical category management using a tree
+- Product catalog with fast lookup using a custom HashMap
+- Category search and traversal
+- Inventory metadata display (ID, name, category, price)
 
 ### 2. Order Book & Matching
-- Price-time priority order matching
-- Separate heaps for buy and sell orders
-- Automatic order matching when prices cross
-- Partial order execution support
+- Price–time priority order matching
+- Separate priority queues for BUY and SELL orders
+- Partial order execution supported
+- Product-specific matching
 
 ### 3. Recommendation Engine
-- Graph-based co-purchase analysis
+- Graph-based “frequently bought together” analysis
+- Weighted edges based on co-purchase frequency
 - Top-K product recommendations
-- Weighted edge tracking for purchase frequency
 
-### 4. Reporting System
-- Inventory reports
-- Order book visualization
-- Transaction logging
+### 4. Reporting
+- Inventory listing
+- Order book top-of-book view
+- Match execution logging
+
+---
 
 ## 🏗️ Data Structures Used
 
-### 1. **HashMap** (`utils/HashMap.h`)
+### **HashMap** (`utils/HashMap.h`)
 - Custom hash table implementation with chaining
-- Used for O(1) product lookups in the catalog
-- Handles collisions using linked lists
+- Used for:
+  - Product catalog lookup
+  - Order lookup by ID
+- Average-case O(1) operations
 
-### 2. **Heap** (`utils/Heap.h`)
-- Generic min/max heap implementation
-- Used in OrderBook for maintaining order priority
-- Supports both min-heap (sell orders) and max-heap (buy orders)
+### **Heap / Priority Queue** (`utils/Heap.h`)
+- Custom generic heap implementation
+- Used as:
+  - Max-heap for BUY orders
+  - Min-heap for SELL orders
+- Enforces price–time priority
 
-### 3. **CategoryTree** (`catalog/CategoryTree.h`)
-- Tree data structure for hierarchical categories
-- Supports nested categories (e.g., Electronics → Mobile → Smartphones)
-- Recursive search and traversal
+### **CategoryTree** (`catalog/CategoryTree.h`)
+- General (multi-child) tree
+- Represents hierarchical product categories
+- Supports recursive traversal and search
 
-### 4. **CoPurchaseGraph** (`recommendation/CoPurchaseGraph.h`)
-- Undirected weighted graph using adjacency lists
-- Tracks co-purchase relationships between products
-- Uses unordered_map for efficient edge lookups
+### **CoPurchaseGraph** (`recommendation/CoPurchaseGraph.h`)
+- Undirected weighted graph
+- Adjacency list representation
+- Tracks co-purchase frequencies between products
+
+---
 
 ## 📁 Project Structure
 
 ```
 Final Project/
 ├── catalog/
-│   ├── Catalog.h/cpp          # Product catalog with HashMap
-│   ├── CategoryTree.h/cpp     # Hierarchical category tree
-│   └── Product.h/cpp           # Product data structure
+│ ├── Catalog.h/cpp
+│ ├── CategoryTree.h/cpp
+│ └── Product.h/cpp
 ├── orderbook/
-│   ├── OrderBook.h/cpp        # Order book with Heap
-│   └── Order.h/cpp            # Order data structure
+│ ├── OrderBook.h/cpp
+│ └── Order.h/cpp
 ├── matching/
-│   └── MatchingEngine.h/cpp    # Order matching logic
+│ └── MatchingEngine.h/cpp
 ├── recommendation/
-│   ├── RecommendationEngine.h # Recommendation system interface
-│   └── CoPurchaseGraph.h      # Graph for co-purchase analysis
+│ ├── RecommendationEngine.h
+│ └── CoPurchaseGraph.h
 ├── reports/
-│   └── Reports.h/cpp          # Reporting utilities
+│ └── Reports.h/cpp
 ├── utils/
-│   ├── HashMap.h              # Custom hash table
-│   └── Heap.h                 # Generic heap implementation
-├── data/                      # CSV data files
-├── main.cpp                   # Main program entry point
-└── tests.cpp                  # Test suite
+│ ├── HashMap.h
+│ └── Heap.h
+├── data/
+│ ├── categories.txt
+│ ├── products.txt
+│ ├── orders.txt
+│ └── purchases.txt
+│ └── DataLoader.h/cpp
+│── main.exe
+└── main.cpp
 ```
+
+
+---
 
 ## 🔨 Compilation & Execution
 
 ### Prerequisites
-- C++ compiler with C++11 support (g++, clang++, or MSVC)
+- C++ compiler with **C++17** support
 - Standard C++ library
 
-### Compilation
+### Compilation (Windows / Linux / macOS)
 
-**Windows (PowerShell/CMD):**
 ```bash
-g++ -std=c++11 -o marketplace main.cpp catalog/*.cpp orderbook/*.cpp matching/*.cpp reports/*.cpp
-```
-
-**Linux/Mac:**
-```bash
-g++ -std=c++11 -o marketplace main.cpp catalog/*.cpp orderbook/*.cpp matching/*.cpp reports/*.cpp
+g++ -std=c++17 main.cpp catalog/*.cpp orderbook/*.cpp matching/*.cpp reports/*.cpp data/DataLoader.cpp -o main.exe
 ```
 
 ### Execution
 
 ```bash
-./marketplace
-# or on Windows:
-marketplace.exe
+./main.exe
 ```
 
 ## 💻 Usage
@@ -132,9 +149,9 @@ The program provides an interactive command-line interface with the following op
 4) Place BUY order
 5) Place SELL order
 6) View best BUY/SELL (top of order book)
-7) Run matching for a product
-8) Demo recommendations for sample data
-9) Run core DSA demo (same as tests)
+7) View order by ID
+8) Run matching for a product
+9) Demo recommendations for sample data
 0) Exit
 ```
 
