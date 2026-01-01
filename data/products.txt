@@ -1,0 +1,3 @@
+101 iPhone_15 Electronics/Mobile 250000 10
+102 Dell_XPS_13 Electronics/Laptop 320000 5
+201 Leather_Jacket Clothing/Jackets 15000 20
