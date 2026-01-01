@@ -19,8 +19,7 @@ void Reports::inventoryReport(const Catalog& c) {
         cout << "Product ID: " << p.id
              << ", Name: " << p.name
              << ", Category: " << p.category
-             << ", Price: " << p.price
-             << ", Stock: " << p.stock << "\n";
+             << ", Price: " << p.price << "\n";
     }
     cout << "\n";
 }
