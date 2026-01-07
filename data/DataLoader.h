@@ -1,10 +1,10 @@
 #ifndef DATA_LOADER_2025_H
 #define DATA_LOADER_2025_H
 
-#include "../catalog/Catalog.h"
-#include "../orderbook/OrderBook.h"
-#include "../utils/HashMap.h"
-#include "../recommendation/RecommendationEngine.h"
+#include "../src/catalog/Catalog.h"
+#include "../src/orderbook/OrderBook.h"
+#include "../src/utils/HashMap.h"
+#include "../src/recommendation/RecommendationEngine.h"
 
 void loadCategories(const char* path, Catalog& catalog);
 void loadProducts(const char* path, Catalog& catalog);

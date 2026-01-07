@@ -1,19 +1,19 @@
 #include <iostream>
 #include <vector>
 
-#include "catalog/Catalog.h"
-#include "catalog/CategoryTree.h"
-#include "catalog/Product.h"
+#include "src/catalog/Catalog.h"
+#include "src/catalog/CategoryTree.h"
+#include "src/catalog/Product.h"
 
-#include "orderbook/Order.h"
-#include "orderbook/OrderBook.h"
+#include "src/orderbook/Order.h"
+#include "src/orderbook/OrderBook.h"
 
-#include "matching/MatchingEngine.h"
+#include "src/matching/MatchingEngine.h"
 
-#include "recommendation/RecommendationEngine.h"
-#include "reports/Reports.h"
+#include "src/recommendation/RecommendationEngine.h"
+#include "src/reports/Reports.h"
 
-#include "utils/HashMap.h"
+#include "src/utils/HashMap.h"
 #include "data/DataLoader.h"
 
 using namespace std;
@@ -184,7 +184,7 @@ void interactiveMarketplace() {
             cout << "Exiting...\n";
         }
         else {
-            cout << "Unknown option.\n\n";
+            cout << "Invalid option.\n\n";
         }
     }
 }
