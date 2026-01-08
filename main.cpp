@@ -152,6 +152,11 @@ void interactiveMarketplace() {
             int pid;
             cout << "Enter product ID to match: ";
             cin >> pid;
+            
+            if (catalog.getProduct(pid) == nullptr) {
+                cout << "Invalid product ID. Matching aborted.\n\n";
+                continue;
+            }
             engine.matchSingleProduct(pid);
             cout << "Matching complete.\n\n";
         }
@@ -162,6 +167,11 @@ void interactiveMarketplace() {
             int pid, k;
             cout << "Enter product ID: ";
             cin >> pid;
+            if (catalog.getProduct(pid) == nullptr) {
+                cout << "Invalid product ID. Cannot generate recommendations.\n\n";
+                continue;
+            }
+
 			cout << "Enter k: ";
 			cin >> k;
 
